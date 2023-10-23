@@ -15,3 +15,8 @@ contains all these parameters. These parameters are used by the function
 an upper bound and a lower bound on the complexity of the basis.
 If there is no elliptic normal basis, the package returns the following statement
 "Sorry, we can't define an elliptic normal basis over this finite field extension".
+Finally in this repository, we provide 9 .JPG files that represent the screenshot of some
+tests we have made. For each example of elliptic normal basis construction we have 3 .JPG
+file. In these three files we define the process of construction, the parameters that lead to 
+the bounds on the complexity of the constructed basis and the weight of the principal special
+vectors. 
