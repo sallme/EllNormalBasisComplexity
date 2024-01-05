@@ -6,7 +6,7 @@ itself which contains several preliminary functions that handle operations
 on special vectors defined in the following article:
 "D. Panario, M. Sall, Q. Wang The complexity of elliptic normal bases".
 The preliminary functions help also in the computation of elliptic functions of degree
-two through which we define an elliptic normal base. For more details about these
+two through which we define an elliptic normal basis. For more details about these
 functions, we refer to the beginning of the file 'ellnbcomplexity.m'.
 If an elliptic normal basis exists over the considered extension, the main function 
 'ENBparamsComputation' computes its parameters step by step and returns a format that 
