@@ -281,7 +281,7 @@ ENBparamsComputation := function(Fq, n)
     ENBtest := IsNormal(ENB[1]);
     printf "(Verification) Is this found element an elliptic normal element? %o\n", ENBtest; 
     for i:=2 to n do 
-        ENB[i] := ENB[1]^(q^i);
+        ENB[i] := ENB[1]^(q^(i-1));
         printf "(Verification) Are the elements normal? %o \n", IsNormal(ENB[i]);
     end for;
 	
