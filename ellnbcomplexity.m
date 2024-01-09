@@ -350,3 +350,33 @@ ENBcomplexityBounds := function(Params)
    printf "The upper bound of the elliptic normal basis complexity is %o.\n", UpB;
    return "!!!!!!!!!!!!!!!!! End of computations !!!!!!!!!!!!!!!!!!!!!!!!";
 end function;
+
+/*************** Computing the weight of the three remaining rows ****************/
+ENB3RowsWeight := function(Fqn, Nelt, x_b, fa, Vr, Vrx)
+    
+    Fq := BaseField(Fqn); n := Degree(Fqn, Fq); q:=#Fq;
+	NB := []; NB[1] := Nelt; 
+    for i:= 2 to n do
+        NB[i] := Nelt^(q^(i-1));
+    end for;	
+    //Naive method for the first row CP_0.
+    VFqn, Psi := VectorSpace(Fqn, Fq, NB);
+    Iota := Psi(x_b);
+    CP_0 := Psi(Nelt*Nelt);
+    //Using new results for the second, CP_1, and last rows, CP_n1.
+    FAv := 0*Vr; FAv[2] := -fa^2;
+    Conv1    := ConvolutionProductNaive(Iota, FAv);
+    Conv2    := ConvolutionProductNaive(Vrx, FAv); 
+    SumConv2 := KCyclicShift(Vr, 1)-Conv2;
+    Conv3    := ConvolutionProductNaive(InvConvolutionProduct(Vr, Fq), SumConv2);
+    CP_1     := Conv1 + Conv3;
+    FAv_n1    := 0*Vr; FAv_n1[1] := -fa^2;
+    Conv1_n1  := ConvolutionProductNaive(Iota, FAv_n1);
+    Conv2_n1     := ConvolutionProductNaive(Vrx, FAv_n1);
+    SumConv2_n1  := KCyclicShift(Vr, n-1)-Conv2_n1;
+    Conv3_n1    := ConvolutionProductNaive(InvConvolutionProduct(Vr, Fq), SumConv2_n1);
+    CP_n1       := Conv1_n1 + Conv3_n1; 
+	
+    return CP_0, Iota, CP_1, CP_n1; 
+	
+end function;
