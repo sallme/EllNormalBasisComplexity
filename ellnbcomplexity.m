@@ -1,7 +1,13 @@
 /*************************** Reference ******************************************
 ** The algorithms described in this package come from the following paper
-** "The complexity of elliptic normal bases", D. Panario, M. Sall, and Q. Wang.
-** To appear 
+** D. Panario, M. Sall, Q. Wang.: The complexity of elliptic normal bases, preprint
+   available, https://arxiv.org/abs/2401.11872v1.
+** The package is related to the one available at
+   https://perso.univ-rennes1.fr/reynald.lercier/file/ellbasis-v1.1.tar.gz
+   which focuses on the cost of multiplication and elliptic (normal) bases.
+   This package mainly focuses on the complexity of elliptic normal bases. By
+   complexity, we mean the number of non-zero elements of the multiplication table
+   of the bases.
 *********************************************************************************/
 
 /**************************** Summary  *******************************************
